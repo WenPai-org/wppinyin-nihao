@@ -1,0 +1,13 @@
+{
+    "name": "sxy/to-pinyin",
+    "authors": [
+        {
+            "name": "sunxiyuan",
+            "email": "sxy@ibadboy.net"
+        }
+    ],
+    "require": {
+        "overtrue/pinyin": "~4.0",
+        "paquettg/php-html-parser": "^3.1"
+    }
+}
