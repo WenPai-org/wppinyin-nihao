@@ -2,27 +2,49 @@ jQuery(document).ready(function($) {
     var url_status = GetQueryString('zhuyin');
     var id = $('.wppy_nihao_status').attr('id');
     var cookie_status = getCookie(id);
+
+    if ( cookie_status == '' )
+        cookie_status = 'on';
+
+    if ( url_status == '' || url_status == null )
+        url_status = 'on';
+
+    // alert( cookie_status +'1111111111'+ url_status);
     if ( cookie_status == 'off' && url_status != 'off' ){
         window.location.href = '?zhuyin=off';
+        return false;
     }
+
     if( url_status == 'off' ){
         $('.wppy_nihao_status').attr('checked',false);
     }else{
         $('.wppy_nihao_status').attr('checked',true);
     }
+    setCookie(id, cookie_status , 30);   
+
     $('.wppy_nihao_label').on('click',function(){
-        var cookie_status = $('.wppy_nihao_status').val();
-        if ( url_status == cookie_status ){
-            cookie_status = 'off';
-        }
-        if ( cookie_status == 'off' ){
-            setCookie(id, cookie_status, 30);   
+        if( url_status == 'off' && cookie_status == 'off' ){
+            // alert('我要开启1111');
+            setCookie(id, 'on', 30);   
+            window.location.href = '?';
+            return false;
+        }else if( url_status == 'on' && cookie_status == 'off' ){
+            // alert('我要开启2222');
+            setCookie(id, 'on', 30);   
+            window.location.href = '?';
+            return false;
+        }else if (url_status == 'off' && cookie_status == 'on' ){
+            // alert('我要关闭3333');
+            setCookie(id, 'off', 30);   
             window.location.href = '?zhuyin=off';
-             
-        }else{
-            setCookie(id, '', 0);   
-            window.location.href = '?zhuyin=on';                      
+            return false;
+        }else if (url_status == 'on' && cookie_status == 'on' ){
+            // alert('我要关闭444');
+            setCookie(id, 'off', 30);   
+            window.location.href = '?zhuyin=off';
+            return false;
         }
+        
     });
 
 });
