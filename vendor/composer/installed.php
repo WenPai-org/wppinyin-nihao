@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'f88ada069a2b24aa3afc5847aea545b4e77470d2',
     'name' => 'wenpai-org/wptongji-code',
   ),
   'versions' => 
@@ -135,12 +135,12 @@
     ),
     'wenpai-org/wptongji-code' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'f88ada069a2b24aa3afc5847aea545b4e77470d2',
     ),
   ),
 );

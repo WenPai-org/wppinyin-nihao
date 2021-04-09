@@ -100,7 +100,7 @@ class ComposerStaticInitfce5bc5e02a56019246923b5dfc6dbfc
         'WenPai\\Framework\\Fields' => __DIR__ . '/../..' . '/framework/class-fields.php',
         'WenPai\\Framework\\Meta_Box' => __DIR__ . '/../..' . '/framework/class-meta-box.php',
         'WenPai\\Framework\\Setting' => __DIR__ . '/../..' . '/framework/class-setting.php',
-        'WenPai\\Framework\\Widget' => __DIR__ . '/../..' . '/framework/class-widget.php',
+        'WenPai\\PinYin\\Src\\Slug' => __DIR__ . '/../..' . '/src/class-slug.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

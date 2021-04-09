@@ -10,5 +10,5 @@ return array(
     'WenPai\\Framework\\Fields' => $baseDir . '/framework/class-fields.php',
     'WenPai\\Framework\\Meta_Box' => $baseDir . '/framework/class-meta-box.php',
     'WenPai\\Framework\\Setting' => $baseDir . '/framework/class-setting.php',
-    'WenPai\\Framework\\Widget' => $baseDir . '/framework/class-widget.php',
+    'WenPai\\PinYin\\Src\\Slug' => $baseDir . '/src/class-slug.php',
 );
