@@ -13,5 +13,6 @@ namespace WenPai\PinYin;
 
 define( 'WPPY_PREFIX', 'wppy' );
 define( 'WPPY_VERSION', '1.0.0' );
+define( 'WPPY_PLUGIN_URL' , plugin_dir_url( __FILE__ ) );
 
 require_once 'load.php';
