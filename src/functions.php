@@ -7,7 +7,7 @@
 
 if ( ! function_exists( 'wppy_get_option' ) ) {
     function wppy_get_option( string $option, string $section, $default = '' ) {
-        $options = is_multisite() ? get_site_option( WPPY_PREFIX . "_{$section}" ) : get_option( WPPY_PREFIX . "_{$section}" );
+        $options = get_option( WPPY_PREFIX . "_{$section}" );
 
         if ( isset( $options[ $option ] ) ) {
             return $options[ $option ];

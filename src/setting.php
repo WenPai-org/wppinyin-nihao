@@ -13,7 +13,7 @@ add_action( 'wp_loaded' , function () {
     Setting::create_options( WPPY_PREFIX, array(
         'menu_title' => '文派拼音生成器',
         'menu_slug'  => 'wppy',
-        'network'    => true,
+        'network'    => false,
     ) );
 
     Setting::create_section( WPPY_PREFIX, array(
