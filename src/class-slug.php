@@ -94,6 +94,7 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 文章别名保存之前，如果没有设置，自动转换为拼音
          *
+         * @since 1.0.0
          * @param $slug
          * @param $post_ID
          * @param $post_status
@@ -102,7 +103,6 @@ if ( !class_exists( Slug::class ) ) {
          * @param $original_slug
          *
          * @return mixed
-         * @since 1.0.0
          */
         public function unique_post_slug( $slug, $post_ID, $post_status, $post_type, $post_parent, $original_slug ) {
             /** 不处理附件别名 */
@@ -123,10 +123,10 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 文章别名保存之前，如果没有设置，自动转换为拼音
          *
+         * @since 1.0.0
          * @param $slug
          *
          * @return mixed
-         * @since 1.0.0
          */
         public function name_save_pre( $slug ) {
             /** 手动编辑时，不自动转换为拼音 */
@@ -141,12 +141,11 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * Rest Api 中，文章别名保存之前，如果没有设置，自动转换为拼音
          *
+         * @since 1.0.0
          * @param $prepared_post
          * @param $request
          *
          * @return mixed
-         * @since 1.0.0
-         *
          */
         public function rest_convert_slug( $prepared_post, $request ) {
             /** 获取文章标题 */
@@ -193,10 +192,10 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 替换分类标题为拼音
          *
+         * @since 1.0.0
          * @param $slug
          *
          * @return mixed
-         * @since 1.0.0
          */
         public function pre_category_nicename( string $slug ): string {
             /** 手动编辑时，不自动转换为拼音 */
@@ -217,13 +216,13 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 添加分类时替换分类标题为拼音
          *
+         * @since 1.0.0
          * @param $data     array 需要保存到数据库中的数据
          * @param $term_id  int 分类项目 ID
          * @param $taxonomy string 分类法名称
          * @param $args     array 用户提交的数据
          *
          * @return array 修改后的需要保存到数据库中的数据
-         * @since 1.0.0
          */
         public function wp_insert_term_data( $data, $taxonomy, $args ) {
             /** 手动编辑时，不自动转换为拼音 */
@@ -237,13 +236,13 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 更新分类时分类标题为拼音
          *
+         * @since 1.0.0
          * @param $data     array 需要保存到数据库中的数据
          * @param $term_id  int 分类项目 ID
          * @param $taxonomy string 分类法名称
          * @param $args     array 用户提交的数据
          *
          * @return array 修改后的需要保存到数据库中的数据
-         * @since 1.0.0
          */
         public function wp_update_term_data( $data, $term_id, $taxonomy, $args ) {
             /** 手动编辑时，不自动转换为拼音 */
@@ -257,10 +256,10 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 替换文件名称为拼音
          *
+         * @since 1.0.0
          * @param string $filename
          *
          * @return string
-         * @since 1.0.0
          */
         public function sanitize_file_name( string $filename ): string {
             $disable_file_convert = $this->disable_file_convert;
@@ -299,11 +298,11 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 转换拼音的通用功能
          *
+         * @since 1.0.0
          * @param $name
          * @param $type
          *
          * @return string 转换后的拼音
-         * @since 1.0.0
          */
         public function slug_convert( string $name, string $type = 'post' ) {
             $use_translator_api = $this->use_translator_api;
@@ -324,10 +323,10 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 拼音转换方式
          *
+         * @since 1.0.0
          * @param $name
          *
          * @return bool|string
-         * @since 1.0.0
          */
         public function slug_pinyin_convert( $name ) {
             $divider = $this->divider;
@@ -348,10 +347,10 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 百度翻译转换方式
          *
+         * @since 1.0.0
          * @param $name
          *
          * @return string
-         * @since 1.0.0
          */
         public function slug_translator( $name ) {
             $length   = $this->length;
@@ -418,13 +417,13 @@ if ( !class_exists( Slug::class ) ) {
         /**
          * 裁剪文本
          *
+         * @since 1.0.0
          * @param string $input
          * @param int $length
          * @param string $divider
          * @param bool $strip_html
          *
          * @return bool|string
-         * @since 1.0.0
          */
         public function trim_slug( $input, $length, $divider = '-', $strip_html = true ) {
             if ( $strip_html ) {

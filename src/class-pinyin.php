@@ -103,6 +103,7 @@ if ( !class_exists( PinYin::class ) ) {
          *
          * @since 1.0.0
          * @param $content_original
+         *
          * @return string
          */
         public function wppinyin_zhuyin( $content_original) {
@@ -159,6 +160,7 @@ if ( !class_exists( PinYin::class ) ) {
          *
          * @since 1.0.0
          * @param $content_original
+         *
          * @return string
          */
         public function add_zhuyin( string $content_original ) {
@@ -210,6 +212,7 @@ if ( !class_exists( PinYin::class ) ) {
          *
          * @since 1.0.0
          * @param array $arys 搜索的数组
+         *
          * @return array
          */
         public function add_ruby_tag( array $arys ) : array {
