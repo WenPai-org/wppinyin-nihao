@@ -8,9 +8,9 @@ jQuery(document).ready(function($) {
     || ( article_status == 'off' && url_status == 'off' )
     || ( cookie_status == 'off' && url_status == 'off' && article_status == 'on' )
     ){
-        $('#wppy_zhuyin_submit').attr('value','Open');
+        $('#wppy_zhuyin_submit').attr('value','开启注音');
     }else{
-        $('#wppy_zhuyin_submit').attr('value','Close');
+        $('#wppy_zhuyin_submit').attr('value','关闭注音');
     }
 
     $('#wppy_zhuyin_submit').on('click',function(){
