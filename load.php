@@ -21,13 +21,22 @@ if ( is_admin() && ! ( defined('DOING_AJAX' ) && DOING_AJAX) ) {
 }
 
 /** 载入Slug转拼音功能 */
+if ( is_admin() ) {
+    $args = array(
+        'disable_file_convert' => wppy_get_option( 'disable_file_convert', 'slug_to_pinyin', 'off' ),
+        'type'                 => (int)wppy_get_option( 'type', 'slug_to_pinyin', 0 ),
+        'divider'              => wppy_get_option( 'divider', 'slug_to_pinyin', '-' ),
+        'length'               => (int)wppy_get_option( 'length', 'slug_to_pinyin', 60 ),
+        'baidu_app_id'         => wppy_get_option( 'baidu_app_id', 'slug_to_pinyin', '' ),
+        'baidu_api_key'        => wppy_get_option( 'baidu_api_key', 'slug_to_pinyin', '' ),
+    );
+    $slug = new Slug( $args );
+    $slug->register_hook();
+}
+
+/** 载入内容注音功能 */
 $args = array(
-    'disable_file_convert' => wppy_get_option( 'wppinyin_nihao_two', 'disable_file_convert', 'off' ),
-    'type'                 => (int)wppy_get_option( 'wppinyin_nihao_two', 'type', 0 ),
-    'divider'              => wppy_get_option( 'wppinyin_nihao_two', 'divider', '-' ),
-    'length'               => (int)wppy_get_option( 'wppinyin_nihao_two', 'length', 60 ),
-    'baidu_app_id'         => wppy_get_option( 'wppinyin_nihao_two', 'baidu_app_id', '' ),
-    'baidu_api_key'        => wppy_get_option( 'wppinyin_nihao_two', 'baidu_api_key', '' ),
+    'global_autoload_py' => wppy_get_option( 'global_autoload_py', 'content_add_pinyin', [] ),
 );
 $slug = new Slug( $args );
 $slug->register_hook();
