@@ -14,33 +14,16 @@ jQuery(document).ready(function($) {
     }
 
     $('#wppy_zhuyin_submit').on('click',function(){
-        if ( cookie_status == '' && ( url_status == '' || url_status == null ) ){
-            window.location.href = '?zhuyin=on';
-            setCookie(id, 'on', 30);   
-            return false;
-        }else if( url_status == 'off' && cookie_status == 'off' ){
-            setCookie(id, 'on', 30);   
-            window.location.href = '?zhuyin=on';
-            return false;
-        }else if( url_status == 'on' && cookie_status == 'off' ){
-            setCookie(id, 'on', 30);   
-            window.location.href = '?zhuyin=on';
-            return false;
-        }else if (url_status == 'off' && cookie_status == 'on' ){
-            setCookie(id, 'off', 30);   
+        let button_value = $('#wppy_zhuyin_submit').val();
+        if ( '关闭注音' === button_value ) {
+            setCookie(id, 'off', 30);
             window.location.href = '?zhuyin=off';
             return false;
-        }else if (url_status == 'on' && cookie_status == 'on' ){
-            setCookie(id, 'off', 30);   
-            window.location.href = '?zhuyin=off';
+        }else if( '开启注音' === button_value ){
+            window.location.href = '?zhuyin=on';
+            setCookie(id, 'on', 30);
             return false;
-        }else if( cookie_status == 'on' && ( url_status == '' || url_status == null ) ){
-            setCookie(id, 'off', 30);   
-            window.location.href = '?zhuyin=off';
-            return false;            
-
         }
-        
     });
 
     if ( cookie_status == '' && ( url_status == '' || url_status == null ) ){

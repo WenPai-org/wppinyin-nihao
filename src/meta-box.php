@@ -18,11 +18,11 @@ Meta_Box::create( WPPY_PREFIX, array(
         array(
             'name'    => 'zhuyin_status',
             'type'    => 'radio',
-            'desc'    => '文章加载时是否自动添加注音？',
-            'default' => 'on',
+            'default' => 'auto',
             'options' => array(
                 'on' => '开启',
                 'off'  => '关闭',
+                'auto'  => '随全局设置',
             ),
         ),
     ),

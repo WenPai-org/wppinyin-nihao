@@ -54,6 +54,9 @@ if ( !class_exists( PinYin::class ) ) {
             $zhuyin_status = get_post_meta( get_the_ID(), 'zhuyin_status', true );
             $article_status = '';
 
+            if( 'auto' === $zhuyin_status )
+                $zhuyin_status = $this->check_zhuyin_status() ? 'on' : 'off';
+
             if ( 'off' == $zhuyin_status ) {
                 $article_status = 'off';
             } else {
@@ -71,7 +74,7 @@ if ( !class_exists( PinYin::class ) ) {
          * @since 1.0.0
          */
         public function wppinyin_single_js() {
-            wp_register_script( 'wppy_nihao', WPPY_PLUGIN_URL . 'assets/js/wppinyin-nihao.js', array(), WPPY_VERSION , true);
+            wp_register_script( 'wppy_nihao', WPPY_PLUGIN_URL . 'assets/js/wppinyin-nihao.js', array( 'jquery' ), WPPY_VERSION , true);
             wp_enqueue_script( 'wppy_nihao');
         }
 
@@ -106,8 +109,11 @@ if ( !class_exists( PinYin::class ) ) {
          *
          * @return string
          */
-        public function wppinyin_zhuyin( $content_original) {
+        public function wppinyin_zhuyin( string $content_original) {
             $zhuyin_status = get_post_meta( get_the_ID() ,'zhuyin_status' , true );
+
+            if( 'auto' === $zhuyin_status )
+                $zhuyin_status = $this->check_zhuyin_status() ? 'on' : 'off';
 
             if( is_admin() ||
                 ( defined('DOING_AJAX') && DOING_AJAX ) ||
@@ -242,6 +248,11 @@ if ( !class_exists( PinYin::class ) ) {
 
                 /** 加载手动注音功能 */
                 wp_enqueue_script( 'wppy_gutenberg', WPPY_PLUGIN_URL . 'assets/js/wppy-gutenberg.js' , $deps , WPPY_VERSION, true );
+
+                $dataToBePassed = array(
+                    'url'   => WPPY_PLUGIN_URL . '/assets/',
+                );
+                wp_localize_script( 'wppy_gutenberg', 'assets', $dataToBePassed );
             }
         }
 

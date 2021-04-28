@@ -41,13 +41,13 @@ add_action( 'wp_loaded' , function () {
                 array(
                     'name'    => 'type',
                     'label'   => __( '转换方式', 'wppy-nihao' ),
-                    'desc'    => __( '全拼、首字母或或百度翻译 (首字母模式下，英文也会取第一个字母)', 'wppy-nihao' ),
+                    'desc'    => __( '全拼、首字母 (首字母模式下，英文也会取第一个字母)', 'wppy-nihao' ),
                     'type'    => 'select',
                     'default' => 0,
                     'options' => array(
                         0 => '拼音全拼',
                         1 => '拼音首字母',
-                        2 => '百度翻译',
+                        // 2 => '百度翻译',
                     ),
                 ),
                 array(
