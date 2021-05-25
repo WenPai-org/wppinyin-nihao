@@ -134,6 +134,11 @@ if ( !class_exists( Slug::class ) ) {
                 return $slug;
             }
 
+            /** 文章标题为空时跳过 */
+            if ( ! isset( $_POST['post_title'] ) || empty( $_POST['post_title'] ) ) {
+                return $slug;
+            }
+
             /** 替换文章标题 */
             return $this->slug_convert( $_POST['post_title'], 'post' );
         }
